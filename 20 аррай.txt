@@ -1,0 +1,51 @@
+Для вирішення завдання Array20 можна написати функцію, яка приймає масив, а також числа K і L, і обчислює суму елементів масиву з номерами від K до L включно. Нижче подано приклад коду на C++:#include <iostream>
+using namespace std;
+
+const int N = 50;
+
+// Функція для знаходження суми елементів масиву в заданому діапазоні
+int sum_of_elements_in_range(const int arr[N], int k, int l)
+{
+    int sum = 0;
+    for (int i = k - 1; i < l; i++) // Масиви в C++ індексуються з 0, тому k-1
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int main()
+{
+    int arr[N]; // Оголошення масиву
+    int n, K, L; // Кількість елементів масиву та числа K і L
+
+    // Введення кількості елементів масиву
+    cout << "Enter the number of elements (N): ";
+    cin >> n;
+
+    // Введення елементів масиву
+    cout << "Enter the elements of the array:" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    // Введення чисел K і L
+    cout << "Enter the values of K and L (1 <= K <= L <= N): ";
+    cin >> K >> L;
+
+    // Перевірка, чи введені значення K і L є в межах правильного діапазону
+    if (K >= 1 && L >= K && L <= N)
+    {
+        // Знаходження та виведення суми елементів масиву в заданому діапазоні
+        int result = sum_of_elements_in_range(arr, K, L);
+        cout << "Sum of elements from position " << K << " to " << L << ": " << result << endl;
+    }
+    else
+    {
+        cout << "Invalid input for K and L. Please ensure 1 <= K <= L <= N." << endl;
+    }
+
+    return 0;
+}
+В даному коді функція sum_of_elements_in_range обчислює суму елементів масиву в заданому діапазоні, а основна програма здійснює введення масиву, чисел K і L, а потім викликає функцію та виводить результат.
